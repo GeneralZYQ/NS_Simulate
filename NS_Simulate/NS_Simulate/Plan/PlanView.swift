@@ -44,11 +44,46 @@ struct PlanView: View {
                                         verticalOffset = point.y
                         } content: {
                             PlannerHeader(outSideOffset: $verticalOffset)
-                                .frame(height:min(120, 120+verticalOffset))
+                                .frame(height:min(120, 120 + verticalOffset))
                                 .padding(EdgeInsets(top: -8, leading: 0, bottom: 0, trailing: 0))
+                            
+                            Spacer().frame(height: 20)
+                                
+                            
+                            PlanDepartDestiView()
+                            Spacer().frame(height: 10)
+                            
+                            DepartureOptionView()
+                            
+                            Spacer().frame(height: 10)
+                            
+                            HStack {
+                                
+                                Button {
+                                    
+                                } label: {
+                                    Text("Plan your journey")
+                                        .bold()
+                                        .frame(maxWidth: .infinity, minHeight: 40)
+                                        .foregroundColor(Color.white)
+                                        .background(Color.blue)
+                                        .cornerRadius(5)
+                                        .padding(.leading, 10)
+                                        .padding(.trailing, 10)
+                                }
+                                
+                            }
+                            
+                            Spacer().frame(height: 20)
+                            
+                            Divider()
+                            
+                            
+
+                            
                             LazyVStack(spacing:10) {
                                 
-                                ForEach(0..<200) { index in
+                                ForEach(0..<20) { index in
                                     Text("Row number \(index)")
                                         .padding()
                                 }
@@ -70,6 +105,7 @@ struct PlanView: View {
                         VStack {
                             Spacer()
                             Image(systemName: "arrow.left.and.line.vertical.and.arrow.right")
+                                .foregroundColor(Color.blue)
                                 .scaleEffect(0.70)
                                 .padding(.top, 10)
 //                            Spacer()
