@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
 //        VStack {
 //            Image(systemName: "globe")
@@ -17,11 +19,16 @@ struct ContentView: View {
 //        }
 //        .padding()
         
+        
+        
         TabView {
+            
+            
             PlanView()
                 .tabItem {
                     Label("Planner", systemImage: "clock")
                 }
+            
             DepartureView()
                 .tabItem{
                     Label("Departures", systemImage: "train.side.middle.car");

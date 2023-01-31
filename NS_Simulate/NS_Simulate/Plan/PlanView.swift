@@ -7,9 +7,88 @@
 
 import SwiftUI
 
+
+
 struct PlanView: View {
+    
+//    init() {
+//            let navAppearance = UINavigationBarAppearance()
+//            navAppearance.backgroundColor = .white;
+////            navAppearance.titleTextAttributes = [.foregroundColor: UIColor.blue]
+////            navAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.blue]
+//            navAppearance.shadowImage = nil;
+//            navAppearance.shadowColor = .clear
+//            UINavigationBar.appearance().standardAppearance = navAppearance
+//            UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
+//        }
+//
+    
+    @State private var verticalOffset: CGFloat = 0.0
+    
+    func topBarOpacity(offset: CGFloat) -> Double {
+        return offset <= -20 ? 1.0 : 0.0;
+//        return 0.3;
+    }
+    
+    
+    
     var body: some View {
-        Text("Plan!")
+        
+        NavigationStack {
+            
+            ZStack {
+                
+                VStack(spacing:0) {
+                    
+                        OffsettableScrollView { point in
+                                        verticalOffset = point.y
+                        } content: {
+                            PlannerHeader(outSideOffset: $verticalOffset)
+                                .frame(height:min(120, 120+verticalOffset))
+                                .padding(EdgeInsets(top: -8, leading: 0, bottom: 0, trailing: 0))
+                            LazyVStack(spacing:10) {
+                                
+                                ForEach(0..<200) { index in
+                                    Text("Row number \(index)")
+                                        .padding()
+                                }
+                            }
+                        }.background(Color.yellow)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                
+                    }.ignoresSafeArea()
+                
+                VStack {
+
+                    ZStack {
+                        Color.yellow
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 100)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        
+                        
+                        VStack {
+                            Spacer()
+                            Image(systemName: "arrow.left.and.line.vertical.and.arrow.right")
+                                .scaleEffect(0.70)
+                                .padding(.top, 10)
+//                            Spacer()
+                            Text("Let us say offset \(verticalOffset)").opacity(0.0)
+                        }
+                        
+                        
+                        
+                        
+                    }.frame(height:60)
+                        .opacity(self.topBarOpacity(offset: verticalOffset))
+                    Spacer()
+                    
+                }.ignoresSafeArea()
+                    
+            }.background(Color.yellow)
+            
+        }
+        
     }
 }
 
