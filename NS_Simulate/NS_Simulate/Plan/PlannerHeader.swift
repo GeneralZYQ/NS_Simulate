@@ -14,10 +14,10 @@ struct PlannerHeader : View {
     @Binding var outSideOffset: CGFloat;
     
     private func iconScale(offset: CGFloat)->Double {
-        if(offset >= -70 && offset < 0) {
-            let scale = (3.0/700.0) * offset + 1.0
+        if(offset >= -20 && offset < 0) {
+            let scale = (3.0/200.0) * offset + 1.0
             return scale
-        } else if (offset < -70) {
+        } else if (offset < -20) {
             return 0.7
         } else {
             return 1.0
