@@ -8,14 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+//        VStack {
+//            Image(systemName: "globe")
+//                .imageScale(.large)
+//                .foregroundColor(.accentColor)
+//            Text("Hello, world!")
+//        }
+//        .padding()
+        
+        
+        
+        TabView {
+            
+            
+            PlanView()
+                .tabItem {
+                    Label("Planner", systemImage: "clock")
+                }
+            
+            DepartureView()
+                .tabItem{
+                    Label("Departures", systemImage: "train.side.middle.car");
+                }
+            NearByView()
+                .tabItem {
+                    Label("Nearby me", systemImage: "mappin.and.ellipse");
+                }
+            MyTripsView()
+                .tabItem {
+                    Label("My trips", systemImage: "person.crop.circle");
+                }
+            MoreView()
+                .tabItem {
+                    Label("More", systemImage: "slider.horizontal.3")
+                }
         }
-        .padding()
     }
 }
 
@@ -24,3 +54,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
