@@ -24,6 +24,7 @@ struct PlanView: View {
 //
     
     @State private var verticalOffset: CGFloat = 0.0
+    @State private var disCount : Int = 1
     
     func topBarOpacity(offset: CGFloat) -> Double {
         return offset <= -20 ? 1.0 : 0.0;
@@ -43,55 +44,70 @@ struct PlanView: View {
                         OffsettableScrollView { point in
                                         verticalOffset = point.y
                         } content: {
-                            PlannerHeader(outSideOffset: $verticalOffset)
-                                .frame(height:min(120, 120 + verticalOffset))
-                                .padding(EdgeInsets(top: -8, leading: 0, bottom: 0, trailing: 0))
                             
-                            Spacer().frame(height: 20)
+                            //This is for the header elements
+                            Group {
+                                PlannerHeader(outSideOffset: $verticalOffset)
+                                    .frame(height:min(120, 120 + verticalOffset))
+                                    .padding(EdgeInsets(top: -8, leading: 0, bottom: 0, trailing: 0))
                                 
-                            
-                            PlanDepartDestiView()
-                            Spacer().frame(height: 10)
-                            
-                            DepartureOptionView()
-                            
-                            Spacer().frame(height: 10)
-                            
-                            HStack {
-                                
-                                Button {
+                                Spacer().frame(height: 20)
                                     
-                                } label: {
-                                    Text("Plan your journey")
-                                        .bold()
-                                        .frame(maxWidth: .infinity, minHeight: 40)
-                                        .foregroundColor(Color.white)
-                                        .background(Color.blue)
-                                        .cornerRadius(5)
-                                        .padding(.leading, 10)
-                                        .padding(.trailing, 10)
+                                
+                                PlanDepartDestiView()
+                                Spacer().frame(height: 10)
+                                
+                                DepartureOptionView()
+                                
+                                Spacer().frame(height: 10)
+                                
+                                HStack {
+                                    
+                                    Button {
+                                        
+                                    } label: {
+                                        Text("Plan your journey")
+                                            .bold()
+                                            .frame(maxWidth: .infinity, minHeight: 40)
+                                            .foregroundColor(Color.white)
+                                            .background(Color.blue)
+                                            .cornerRadius(5)
+                                            .padding(.leading, 10)
+                                            .padding(.trailing, 10)
+                                    }
+                                    
                                 }
                                 
+                                Spacer().frame(height: 20)
+                                
+                                Divider()
+                                
+                                DisruptionPromptView(disruptionCount: disCount)
+    //                                .background(Color.yellow)
                             }
                             
-                            Spacer().frame(height: 20)
                             
-                            Divider()
-                            
-                            
+                            //This is for the personal preference
+                            Group {
+                                
+                                
+                                Spacer().frame(height: 30)
+                                LazyVStack(spacing:10) {
 
-                            
-                            LazyVStack(spacing:10) {
-                                
-                                ForEach(0..<20) { index in
-                                    Text("Row number \(index)")
-                                        .padding()
+                                    ForEach(0..<20) { index in
+                                        Text("Row number \(index)")
+                                            .frame(maxWidth: .infinity)
+                                            .background(Color.white)
+                                            
+                                    }
                                 }
                             }
+                            
+                           
                         }.background(Color.yellow)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 
-                    }.ignoresSafeArea()
+                }.ignoresSafeArea(edges: .top)
                 
                 VStack {
 
