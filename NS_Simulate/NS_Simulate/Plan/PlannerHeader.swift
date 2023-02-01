@@ -43,10 +43,12 @@ struct PlannerHeader : View {
             VStack {
                 
                 Image(systemName: "arrow.left.and.line.vertical.and.arrow.right")
+                    .foregroundColor(Color.blue)
                     .scaleEffect(self.iconScale(offset: outSideOffset))
                     .padding(.top, 70)
                 Spacer()
                 Text("Welcome to this board!")
+                    .foregroundColor(Color.blue)
                     .scaleEffect(self.textScale(offset: outSideOffset))
             }
         }
