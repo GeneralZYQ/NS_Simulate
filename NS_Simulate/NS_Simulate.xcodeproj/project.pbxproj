@@ -11,6 +11,7 @@
 		612472E52988544000C93CE2 /* PlannerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612472E42988544000C93CE2 /* PlannerHeader.swift */; };
 		612472E72989718100C93CE2 /* PlanDepartDestiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612472E62989718100C93CE2 /* PlanDepartDestiView.swift */; };
 		612472E92989A78C00C93CE2 /* DepartureOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612472E82989A78C00C93CE2 /* DepartureOptionView.swift */; };
+		612472EB298A6C2600C93CE2 /* DisruptionPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612472EA298A6C2600C93CE2 /* DisruptionPromptView.swift */; };
 		61CE7AD92986AFEA00C8ECF5 /* NS_SimulateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE7AD82986AFEA00C8ECF5 /* NS_SimulateApp.swift */; };
 		61CE7ADB2986AFEA00C8ECF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE7ADA2986AFEA00C8ECF5 /* ContentView.swift */; };
 		61CE7ADD2986AFEA00C8ECF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CE7ADC2986AFEA00C8ECF5 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		612472E42988544000C93CE2 /* PlannerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerHeader.swift; sourceTree = "<group>"; };
 		612472E62989718100C93CE2 /* PlanDepartDestiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDepartDestiView.swift; sourceTree = "<group>"; };
 		612472E82989A78C00C93CE2 /* DepartureOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureOptionView.swift; sourceTree = "<group>"; };
+		612472EA298A6C2600C93CE2 /* DisruptionPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisruptionPromptView.swift; sourceTree = "<group>"; };
 		61CE7AD52986AFEA00C8ECF5 /* NS_Simulate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NS_Simulate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61CE7AD82986AFEA00C8ECF5 /* NS_SimulateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NS_SimulateApp.swift; sourceTree = "<group>"; };
 		61CE7ADA2986AFEA00C8ECF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,13 @@
 			path = NSCommon;
 			sourceTree = "<group>";
 		};
+		612472EC298A6C2C00C93CE2 /* Disruption */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Disruption;
+			sourceTree = "<group>";
+		};
 		61CE7ACC2986AFE900C8ECF5 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +86,7 @@
 		61CE7AD72986AFEA00C8ECF5 /* NS_Simulate */ = {
 			isa = PBXGroup;
 			children = (
+				612472EC298A6C2C00C93CE2 /* Disruption */,
 				612472E1298852FC00C93CE2 /* NSCommon */,
 				61CE7AF22986B6C900C8ECF5 /* More */,
 				61CE7AEF2986B6B500C8ECF5 /* Trips */,
@@ -106,6 +116,7 @@
 				612472E42988544000C93CE2 /* PlannerHeader.swift */,
 				612472E62989718100C93CE2 /* PlanDepartDestiView.swift */,
 				612472E82989A78C00C93CE2 /* DepartureOptionView.swift */,
+				612472EA298A6C2600C93CE2 /* DisruptionPromptView.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 				61CE7AEB2986B68800C8ECF5 /* DepartureView.swift in Sources */,
 				61CE7AD92986AFEA00C8ECF5 /* NS_SimulateApp.swift in Sources */,
 				61CE7AF12986B6C400C8ECF5 /* MyTripsView.swift in Sources */,
+				612472EB298A6C2600C93CE2 /* DisruptionPromptView.swift in Sources */,
 				612472E92989A78C00C93CE2 /* DepartureOptionView.swift in Sources */,
 				61CE7AEE2986B6A400C8ECF5 /* NearByView.swift in Sources */,
 				61CE7AE72986B60C00C8ECF5 /* PlanView.swift in Sources */,
