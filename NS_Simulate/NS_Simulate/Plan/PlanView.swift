@@ -91,12 +91,14 @@ struct PlanView: View {
                             Group {
                                 
                                 
-                                
+                                Spacer().frame(height: 30)
                                 LazyVStack(spacing:10) {
 
                                     ForEach(0..<20) { index in
                                         Text("Row number \(index)")
-                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .background(Color.white)
+                                            
                                     }
                                 }
                             }
@@ -105,7 +107,7 @@ struct PlanView: View {
                         }.background(Color.yellow)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 
-                    }.ignoresSafeArea()
+                }.ignoresSafeArea(edges: .top)
                 
                 VStack {
 
