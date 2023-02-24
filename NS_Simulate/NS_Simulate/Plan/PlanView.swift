@@ -27,7 +27,7 @@ struct PlanView: View {
     @State private var disCount : Int = 1
     
     let fakecities = [City(name: "Haarlem", cityID: "1"), City(name: "Amsterdam RAI", cityID: "2"), City(name: "Leiden", cityID: "3")]
-    let fakePaths = [CityPair(startCity: City(name: "Haarlem", cityID: "1"), desCity: City(name: "Leiden", cityID: "3"))]
+    let fakePaths = [CityPair(startCity: City(name: "Haarlem Den Haaag", cityID: "1"), desCity: City(name: "Leiden Central", cityID: "3"))]
     
     func topBarOpacity(offset: CGFloat) -> Double {
         return offset <= -20 ? 1.0 : 0.0;

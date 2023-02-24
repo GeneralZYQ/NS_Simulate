@@ -35,7 +35,8 @@ struct FavoritePathCell: View {
                     .foregroundColor(.blue)
                 Spacer()
             }
-        }.buttonStyle(PlainButtonStyle())
+        }.frame(height: 50)
+        .buttonStyle(PlainButtonStyle())
 
     }
 }
@@ -53,7 +54,7 @@ struct FavoriteTripsWidget: View {
                         .cornerRadius(5)
                         .padding(10)
                     
-                    VStack {
+                    VStack(spacing: 0) {
                         HStack {
                             Spacer()
                             Text("Plan Again ...")
@@ -79,41 +80,43 @@ struct FavoriteTripsWidget: View {
                                     .bold()
                                     .padding(10)
                                     .font(.subheadline)
-                                    .frame(width:proxy.size.width - 20, height: 40, alignment: .leading)
+                                    .frame(width:proxy.size.width - 20, height: 50, alignment: .leading)
                                     .background(.white)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
                         
                         HStack(spacing: 0) {
-                          
+
                            Spacer()
-                            
+
                             Button {
-                                
+
                             } label: {
                                 Text("...")
                                     .foregroundColor(.blue)
                                     .bold()
-                                    .padding(10)
+                                    .padding(.trailing, 10)
                                     .font(.subheadline)
-                                    .frame(height: 40, alignment: .trailing)
+                                    .frame(height: 30, alignment: .trailing)
                                     .background(.white)
                             }
                             .buttonStyle(PlainButtonStyle())
 
 
-                        }.padding(.leading, 10)
+                        }
+                        .padding(.leading, 10)
                          .padding(.trailing, 10)
+                         
                     }
                 }
             }
-        }.frame(height: 40 * CGFloat(paths.count) + 120)
+        }.frame(height: 50 * CGFloat(paths.count) + 105)
     }
 }
 
 struct FavoriteTripsWidget_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteTripsWidget(paths: [CityPair(startCity: City(name: "Haarlem", cityID: "1"), desCity: City(name: "Leiden", cityID: "3"))])
+        FavoriteTripsWidget(paths: [CityPair(startCity: City(name: "Haarlem Den Haag", cityID: "1"), desCity: City(name: "Leiden22", cityID: "3"))])
     }
 }
