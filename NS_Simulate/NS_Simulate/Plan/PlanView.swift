@@ -26,6 +26,8 @@ struct PlanView: View {
     @State private var verticalOffset: CGFloat = 0.0
     @State private var disCount : Int = 1
     
+    let fakecities = [City(name: "Haarlem", cityID: "1"), City(name: "Amsterdam RAI", cityID: "2"), City(name: "Leiden", cityID: "3")]
+    
     func topBarOpacity(offset: CGFloat) -> Double {
         return offset <= -20 ? 1.0 : 0.0;
 //        return 0.3;
@@ -90,17 +92,22 @@ struct PlanView: View {
                             //This is for the personal preference
                             Group {
                                 
-                                
                                 Spacer().frame(height: 30)
-                                LazyVStack(spacing:10) {
-
-                                    ForEach(0..<20) { index in
-                                        Text("Row number \(index)")
-                                            .frame(maxWidth: .infinity)
-                                            .background(Color.white)
-                                            
-                                    }
-                                }
+//                                Color.gray.frame(height: 30)
+                                
+                                FavoriteWidget(favorites: fakecities)
+                                    .frame(height: 300)
+                                
+                                
+//                                LazyVStack(spacing:10) {
+//
+//                                    ForEach(0..<30) { index in
+//                                        Text("Row number \(index)")
+//                                            .frame(maxWidth: .infinity)
+//                                            .background(Color.white)
+//
+//                                    }
+//                                }
                             }
                             
                            
