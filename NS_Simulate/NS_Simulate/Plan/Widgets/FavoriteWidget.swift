@@ -89,26 +89,50 @@ struct FavoriteWidget: View {
                                  .background(.white)
                          }
                          .buttonStyle(PlainButtonStyle())
-
                      }
                      
-                     Divider()
-                     HStack {
+                     Divider().padding(.leading,10)
+                     
+                     HStack(spacing: 0) {
                          Button {
                              
                          } label: {
-                             
+                             Text("Add Favorite")
+                                 .foregroundColor(.blue)
+                                 .bold()
+                                 .padding(10)
+                                 .font(.subheadline)
+                                 .frame(height: 40, alignment: .leading)
+                                 .background(.white)
                          }
+                         .buttonStyle(PlainButtonStyle())
+                         
+                         Color.white.frame(height: 40)
                          
                          Button {
                              
                          } label: {
-                             
+                             Text("...")
+                                 .foregroundColor(.blue)
+                                 .bold()
+                                 .padding(10)
+                                 .font(.subheadline)
+                                 .frame(height: 40, alignment: .trailing)
+                                 .background(.white)
                          }
-                     }
-                 }.padding(.top, 15)
-            }
-        }
+                         .buttonStyle(PlainButtonStyle())
+
+
+                     }.padding(.leading, 10)
+                      .padding(.trailing, 10)
+                 }.cornerRadius(20)
+                 .padding(.top, 15)
+                  .padding(.bottom, 15)
+                  
+                  
+             }
+        }.frame(height: 115 + CGFloat(favorites.count * 50))
+        
         
     }
 }

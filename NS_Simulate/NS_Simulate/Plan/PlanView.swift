@@ -27,6 +27,7 @@ struct PlanView: View {
     @State private var disCount : Int = 1
     
     let fakecities = [City(name: "Haarlem", cityID: "1"), City(name: "Amsterdam RAI", cityID: "2"), City(name: "Leiden", cityID: "3")]
+    let fakePaths = [CityPair(startCity: City(name: "Haarlem", cityID: "1"), desCity: City(name: "Leiden", cityID: "3"))]
     
     func topBarOpacity(offset: CGFloat) -> Double {
         return offset <= -20 ? 1.0 : 0.0;
@@ -95,19 +96,13 @@ struct PlanView: View {
                                 Spacer().frame(height: 30)
 //                                Color.gray.frame(height: 30)
                                 
-                                FavoriteWidget(favorites: fakecities)
-                                    .frame(height: 300)
+                                LazyVStack(spacing: 0) {
+                                    FavoriteWidget(favorites: fakecities)
+                                        
+                                    FavoriteTripsWidget(paths: fakePaths)
+                                }
                                 
                                 
-//                                LazyVStack(spacing:10) {
-//
-//                                    ForEach(0..<30) { index in
-//                                        Text("Row number \(index)")
-//                                            .frame(maxWidth: .infinity)
-//                                            .background(Color.white)
-//
-//                                    }
-//                                }
                             }
                             
                            
