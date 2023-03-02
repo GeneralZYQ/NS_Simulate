@@ -26,6 +26,10 @@ struct PlanView: View {
     @State private var verticalOffset: CGFloat = 0.0
     @State private var disCount : Int = 1
     
+    @StateObject var loginManager = LoginManager.shared()
+    
+    @State private var showingSheet = false
+    
     let fakecities = [City(name: "Haarlem", cityID: "1"), City(name: "Amsterdam RAI", cityID: "2"), City(name: "Leiden", cityID: "3")]
     let fakePaths = [CityPair(startCity: City(name: "Haarlem Den Haaag", cityID: "1"), desCity: City(name: "Leiden Central", cityID: "3"))]
     
@@ -100,6 +104,18 @@ struct PlanView: View {
                                     FavoriteWidget(favorites: fakecities)
                                         
                                     FavoriteTripsWidget(paths: fakePaths)
+                                    
+                                    
+                                    
+//                                    LoginManager.shared().loginStatus = true
+                                    
+                                    if(loginManager.loginStatus) {
+                                        Color.white
+                                    }
+                                    
+                                
+
+                                    
                                 }
                                 
                                 

@@ -35,12 +35,15 @@ struct departureAndDestinationButtons : View {
     @State var departure: String
     @State var destination: String
     
+    @State private var showingDepartureList = false
+    @State private var showingDestinationList = false
+    
     var body: some View {
         
         GeometryReader { proxy in
             VStack(alignment: .leading ,spacing: 0.0) {
                 Button {
-                    
+                    showingDepartureList = true
                 } label: {
                     Text(self.departure)
                         .font(.subheadline)
@@ -52,15 +55,16 @@ struct departureAndDestinationButtons : View {
                 }
                 .frame(width: proxy.size.width)
                 .background(Color.white)
+                .sheet(isPresented: $showingDepartureList) {
+                    Text("departure")
+                }
                 
-                    
-                    
                 
                 Divider()
                     .frame(width:  proxy.size.width )
                 
                 Button {
-                    
+                    showingDestinationList = true
                 } label: {
                     Text(self.destination)
                         .font(.subheadline)
@@ -70,6 +74,9 @@ struct departureAndDestinationButtons : View {
                 }
                 .frame(width: proxy.size.width)
                 .background(Color.white)
+                .sheet(isPresented: $showingDestinationList) {
+                    Text("destination")
+                }
 
             }
         }

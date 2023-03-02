@@ -15,6 +15,7 @@
 		613A19E629A8E0330089C0B8 /* FavoriteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A19E529A8E0330089C0B8 /* FavoriteWidget.swift */; };
 		613A19E829A916B90089C0B8 /* FavoriteTripsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A19E729A916B90089C0B8 /* FavoriteTripsWidget.swift */; };
 		613A19EA29A936630089C0B8 /* CardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A19E929A936630089C0B8 /* CardWidget.swift */; };
+		613A19ED29B11A010089C0B8 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A19EC29B11A010089C0B8 /* LoginManager.swift */; };
 		61CE7AD92986AFEA00C8ECF5 /* NS_SimulateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE7AD82986AFEA00C8ECF5 /* NS_SimulateApp.swift */; };
 		61CE7ADB2986AFEA00C8ECF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE7ADA2986AFEA00C8ECF5 /* ContentView.swift */; };
 		61CE7ADD2986AFEA00C8ECF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CE7ADC2986AFEA00C8ECF5 /* Assets.xcassets */; };
@@ -24,6 +25,9 @@
 		61CE7AEE2986B6A400C8ECF5 /* NearByView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE7AED2986B6A400C8ECF5 /* NearByView.swift */; };
 		61CE7AF12986B6C400C8ECF5 /* MyTripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE7AF02986B6C400C8ECF5 /* MyTripsView.swift */; };
 		61CE7AF42986B6D700C8ECF5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE7AF32986B6D700C8ECF5 /* MoreView.swift */; };
+		61D5B2F729B12903009AB529 /* LocationSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5B2F629B12903009AB529 /* LocationSelectView.swift */; };
+		61D5B2F929B12CBE009AB529 /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5B2F829B12CBE009AB529 /* CurrentLocationView.swift */; };
+		61D5B2FB29B131F7009AB529 /* NearbyStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5B2FA29B131F7009AB529 /* NearbyStationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,7 @@
 		613A19E529A8E0330089C0B8 /* FavoriteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWidget.swift; sourceTree = "<group>"; };
 		613A19E729A916B90089C0B8 /* FavoriteTripsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTripsWidget.swift; sourceTree = "<group>"; };
 		613A19E929A936630089C0B8 /* CardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWidget.swift; sourceTree = "<group>"; };
+		613A19EC29B11A010089C0B8 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		61CE7AD52986AFEA00C8ECF5 /* NS_Simulate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NS_Simulate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61CE7AD82986AFEA00C8ECF5 /* NS_SimulateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NS_SimulateApp.swift; sourceTree = "<group>"; };
 		61CE7ADA2986AFEA00C8ECF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +50,9 @@
 		61CE7AED2986B6A400C8ECF5 /* NearByView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByView.swift; sourceTree = "<group>"; };
 		61CE7AF02986B6C400C8ECF5 /* MyTripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsView.swift; sourceTree = "<group>"; };
 		61CE7AF32986B6D700C8ECF5 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		61D5B2F629B12903009AB529 /* LocationSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectView.swift; sourceTree = "<group>"; };
+		61D5B2F829B12CBE009AB529 /* CurrentLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationView.swift; sourceTree = "<group>"; };
+		61D5B2FA29B131F7009AB529 /* NearbyStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,14 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
+		613A19EB29B1198C0089C0B8 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				613A19EC29B11A010089C0B8 /* LoginManager.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		61CE7ACC2986AFE900C8ECF5 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +118,7 @@
 		61CE7AD72986AFEA00C8ECF5 /* NS_Simulate */ = {
 			isa = PBXGroup;
 			children = (
+				613A19EB29B1198C0089C0B8 /* Global */,
 				612472EC298A6C2C00C93CE2 /* Disruption */,
 				612472E1298852FC00C93CE2 /* NSCommon */,
 				61CE7AF22986B6C900C8ECF5 /* More */,
@@ -128,6 +145,7 @@
 		61CE7AE82986B61600C8ECF5 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
+				61D5B2F529B128BC009AB529 /* LocationSelect */,
 				61370FAA29A8E00200E45907 /* Widgets */,
 				61CE7AE62986B60C00C8ECF5 /* PlanView.swift */,
 				612472E42988544000C93CE2 /* PlannerHeader.swift */,
@@ -168,6 +186,16 @@
 				61CE7AF32986B6D700C8ECF5 /* MoreView.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		61D5B2F529B128BC009AB529 /* LocationSelect */ = {
+			isa = PBXGroup;
+			children = (
+				61D5B2F629B12903009AB529 /* LocationSelectView.swift */,
+				61D5B2F829B12CBE009AB529 /* CurrentLocationView.swift */,
+				61D5B2FA29B131F7009AB529 /* NearbyStationsView.swift */,
+			);
+			path = LocationSelect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				613A19EA29A936630089C0B8 /* CardWidget.swift in Sources */,
+				613A19ED29B11A010089C0B8 /* LoginManager.swift in Sources */,
 				613A19E829A916B90089C0B8 /* FavoriteTripsWidget.swift in Sources */,
 				613A19E629A8E0330089C0B8 /* FavoriteWidget.swift in Sources */,
 				61CE7AF42986B6D700C8ECF5 /* MoreView.swift in Sources */,
@@ -248,11 +277,14 @@
 				61CE7ADB2986AFEA00C8ECF5 /* ContentView.swift in Sources */,
 				612472E72989718100C93CE2 /* PlanDepartDestiView.swift in Sources */,
 				61CE7AEB2986B68800C8ECF5 /* DepartureView.swift in Sources */,
+				61D5B2F929B12CBE009AB529 /* CurrentLocationView.swift in Sources */,
 				61CE7AD92986AFEA00C8ECF5 /* NS_SimulateApp.swift in Sources */,
+				61D5B2F729B12903009AB529 /* LocationSelectView.swift in Sources */,
 				61CE7AF12986B6C400C8ECF5 /* MyTripsView.swift in Sources */,
 				612472EB298A6C2600C93CE2 /* DisruptionPromptView.swift in Sources */,
 				612472E92989A78C00C93CE2 /* DepartureOptionView.swift in Sources */,
 				61CE7AEE2986B6A400C8ECF5 /* NearByView.swift in Sources */,
+				61D5B2FB29B131F7009AB529 /* NearbyStationsView.swift in Sources */,
 				61CE7AE72986B60C00C8ECF5 /* PlanView.swift in Sources */,
 				612472E32988532400C93CE2 /* OffsettableScrollView.swift in Sources */,
 			);
