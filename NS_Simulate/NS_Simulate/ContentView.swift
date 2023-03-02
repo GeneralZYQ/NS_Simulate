@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @StateObject var loginManager = LoginManager.shared()
+    
     
     var body: some View {        
         
         
         TabView {
-            
             
             PlanView()
                 .tabItem {
