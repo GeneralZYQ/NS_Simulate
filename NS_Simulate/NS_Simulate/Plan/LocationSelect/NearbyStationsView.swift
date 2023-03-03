@@ -9,24 +9,104 @@ import SwiftUI
 
 struct NearbyStationsView: View {
     var body: some View {
-        HStack(alignment: .center, spacing: 0) {
+        HStack(alignment: .top, spacing: 0) {
+            
+            Spacer()
             VStack(spacing: 30) {
                 Image(systemName: "car")
-                    .foregroundColor(.blue)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .overlay(
-                        Circle().stroke(.blue, lineWidth: 1)
-                            .scaleEffect(1.6)
-                        
+                        Circle()
+                            .stroke(.blue, lineWidth: 1)
+                            .frame(width: 80, height: 80)
+                            
                     )
-                    .scaleEffect(2.3)
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.blue)
                 
                     
                 Text("Haarlem")
-                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                    .font(.title3)
+                    .frame(maxWidth: 120)
                     .foregroundColor(.blue)
                     
             }
+            
+            Group {
+                Spacer()
+                
+                Color.gray.frame(width: 1, height: 80)
+                    .padding(.bottom, 40)
+                Spacer()
+            }
+            
+            
+            
+            VStack(spacing: 30) {
+                
+                Image(systemName: "car")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .overlay(
+                        Circle()
+                            .stroke(.blue, lineWidth: 1)
+                            .frame(width: 80, height: 80)
+                            
+                    )
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.blue)
+                
+                    
+                Text("Bloemendaal")
+                    .multilineTextAlignment(.center)
+                    .font(.title3)
+                    .frame(maxWidth: 120)
+                    .foregroundColor(.blue)
+                    
+            }.padding(.top, 0)
+            
+            Group {
+                Spacer()
+                    
+                Color.gray.frame(width: 1, height: 80)
+                    .padding(.top, -20)
+                
+                Spacer()
+            }
+            
+            
+            
+            VStack(spacing: 25) {
+                
+                Image(systemName: "car")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .overlay(
+                        Circle()
+                            .stroke(.blue, lineWidth: 1)
+                            .frame(width: 80, height: 80)
+                            
+                    )
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.blue)
+                
+                    
+                Text("Amsterdam Sloterdijk")
+                    .multilineTextAlignment(.center)
+                    .font(.title3)
+                    .frame(maxWidth: 120)
+                    .foregroundColor(.blue)
+                    
+            }
+            
+            Spacer()
+                
+            
         }
+        .frame(height: 170)
+        .background(.red)
     }
 }
 
