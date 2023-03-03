@@ -29,7 +29,8 @@ struct CurrentLocationView: View {
             Image(systemName: "map")
                 .frame(width: 40)
                 .foregroundColor(.blue)
-        }
+                
+        }.background(.white)
     }
 }
 
