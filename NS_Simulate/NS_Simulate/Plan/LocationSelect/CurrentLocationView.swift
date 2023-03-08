@@ -30,7 +30,8 @@ struct CurrentLocationView: View {
                 .frame(width: 40)
                 .foregroundColor(.blue)
                 
-        }.background(.white)
+        }
+        
     }
 }
 
