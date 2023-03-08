@@ -16,26 +16,76 @@ struct LocationSelectView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ZStack {
-                Color.yellow
-                HStack {
-                    TextField("  Where does your trip begin?", text: $searchingText)
-                        .frame(height: 45)
-                        .background(Color.white)
-                        .cornerRadius(5)
-                        .padding(.leading, 10)
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Cancel")
-                            .font(.subheadline)
-                    }
-                    .frame(height: 45)
-                    .padding(.trailing, 10)
+            VStack(spacing: 0) {
+                ZStack {
+                    
+                    Color.yellow
+                    
+                        HStack {
+                            TextField("  Where does your trip begin?", text: $searchingText)
+                                .frame(height: 45)
+                                .background(Color.white)
+                                .cornerRadius(5)
+                                .padding(.leading, 10)
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Text("Cancel")
+                                    .font(.subheadline)
+                            }
+                            .frame(height: 45)
+                            .padding(.trailing, 10)
 
+                        }
+                    
+                }.frame(height: 65)
+                
+                
+                List() {
+                    
+                    CurrentLocationView()
+                        .background(.red)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets())
+
+                    Color.yellow
+                        .listRowInsets(EdgeInsets())
+                    
+                    Section(header: HStack {
+
+                        ZStack {
+                            Color.gray
+                            HStack {
+                                Text("Sticky header")
+                                    .padding(.top, 20)
+                                    .foregroundColor(.green)
+                                  .font(.system(size: 14))
+                                  
+                                  
+
+                                Spacer()
+                            }
+
+                        }.padding(.top, -20)
+
+                      }) {
+                        ForEach(1..<40) { index in
+                          Text("Row #\(index)")
+                        }
+                          
+                      }
+                      .listRowInsets(EdgeInsets())
+                    
                 }
                 
+                .listStyle(PlainListStyle())
+                
+                
+                
+                
             }
+            
+            
             
             Spacer()
         }

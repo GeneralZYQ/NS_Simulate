@@ -28,6 +28,7 @@
 		61D5B2F729B12903009AB529 /* LocationSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5B2F629B12903009AB529 /* LocationSelectView.swift */; };
 		61D5B2F929B12CBE009AB529 /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5B2F829B12CBE009AB529 /* CurrentLocationView.swift */; };
 		61D5B2FB29B131F7009AB529 /* NearbyStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5B2FA29B131F7009AB529 /* NearbyStationsView.swift */; };
+		61D5B2FD29B7A01D009AB529 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5B2FC29B7A01D009AB529 /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		61D5B2F629B12903009AB529 /* LocationSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectView.swift; sourceTree = "<group>"; };
 		61D5B2F829B12CBE009AB529 /* CurrentLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationView.swift; sourceTree = "<group>"; };
 		61D5B2FA29B131F7009AB529 /* NearbyStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStationsView.swift; sourceTree = "<group>"; };
+		61D5B2FC29B7A01D009AB529 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				61D5B2F629B12903009AB529 /* LocationSelectView.swift */,
 				61D5B2F829B12CBE009AB529 /* CurrentLocationView.swift */,
 				61D5B2FA29B131F7009AB529 /* NearbyStationsView.swift */,
+				61D5B2FC29B7A01D009AB529 /* test.swift */,
 			);
 			path = LocationSelect;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				61CE7AD92986AFEA00C8ECF5 /* NS_SimulateApp.swift in Sources */,
 				61D5B2F729B12903009AB529 /* LocationSelectView.swift in Sources */,
 				61CE7AF12986B6C400C8ECF5 /* MyTripsView.swift in Sources */,
+				61D5B2FD29B7A01D009AB529 /* test.swift in Sources */,
 				612472EB298A6C2600C93CE2 /* DisruptionPromptView.swift in Sources */,
 				612472E92989A78C00C93CE2 /* DepartureOptionView.swift in Sources */,
 				61CE7AEE2986B6A400C8ECF5 /* NearByView.swift in Sources */,

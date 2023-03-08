@@ -38,7 +38,7 @@ struct NearbyStationsView: View {
                 Spacer()
                 
                 Color.gray.frame(width: 1, height: 80)
-                    .padding(.bottom, 40)
+                    .padding(.top, -20)
                 Spacer()
             }
             
@@ -96,7 +96,7 @@ struct NearbyStationsView: View {
                 Text("Amsterdam Sloterdijk")
                     .multilineTextAlignment(.center)
                     .font(.title3)
-                    .frame(maxWidth: 120)
+                    .frame(maxWidth: 120, maxHeight: 50)
                     .foregroundColor(.blue)
                     
             }
@@ -105,8 +105,8 @@ struct NearbyStationsView: View {
                 
             
         }
-        .frame(height: 170)
-        .background(.red)
+        .frame(height: 160)
+        .background(.white)
     }
 }
 
