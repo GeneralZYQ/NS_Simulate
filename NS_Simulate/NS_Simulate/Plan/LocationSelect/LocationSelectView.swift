@@ -54,14 +54,12 @@ struct LocationSelectView: View {
                     Section(header: HStack {
 
                         ZStack {
-                            Color.gray
+                            Color.gray.opacity(0.2)
                             HStack {
-                                Text("Sticky header")
+                                Text("Nearby stations")
                                     .padding(.top, 20)
-                                    .foregroundColor(.green)
+                                    .foregroundColor(.gray)
                                   .font(.system(size: 14))
-                                  
-                                  
 
                                 Spacer()
                             }
@@ -69,15 +67,13 @@ struct LocationSelectView: View {
                         }.padding(.top, -20)
 
                       }) {
-                        ForEach(1..<40) { index in
-                          Text("Row #\(index)")
-                        }
+                          
+                          NearbyStationsView()
                           
                       }
                       .listRowInsets(EdgeInsets())
                     
                 }
-                
                 .listStyle(PlainListStyle())
                 
                 

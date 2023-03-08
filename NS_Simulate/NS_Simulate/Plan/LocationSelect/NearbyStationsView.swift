@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct NearbyStationsView: View {
+    
+    private var circleDemester = 60.0
+    private var carDemester = 40.0
+    private var icon_top = 20.0
+    
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
             
@@ -19,10 +24,10 @@ struct NearbyStationsView: View {
                     .overlay(
                         Circle()
                             .stroke(.blue, lineWidth: 1)
-                            .frame(width: 80, height: 80)
+                            .frame(width: circleDemester, height: circleDemester)
                             
                     )
-                    .frame(width: 50, height: 50)
+                    .frame(width: carDemester, height: carDemester)
                     .foregroundColor(.blue)
                 
                     
@@ -32,13 +37,13 @@ struct NearbyStationsView: View {
                     .frame(maxWidth: 120)
                     .foregroundColor(.blue)
                     
-            }
+            }.padding(.top, icon_top)
             
             Group {
                 Spacer()
                 
                 Color.gray.frame(width: 1, height: 80)
-                    .padding(.top, -20)
+                    .padding(.top, 0)
                 Spacer()
             }
             
@@ -52,10 +57,10 @@ struct NearbyStationsView: View {
                     .overlay(
                         Circle()
                             .stroke(.blue, lineWidth: 1)
-                            .frame(width: 80, height: 80)
+                            .frame(width: circleDemester, height: circleDemester)
                             
                     )
-                    .frame(width: 50, height: 50)
+                    .frame(width: carDemester, height: carDemester)
                     .foregroundColor(.blue)
                 
                     
@@ -65,13 +70,13 @@ struct NearbyStationsView: View {
                     .frame(maxWidth: 120)
                     .foregroundColor(.blue)
                     
-            }.padding(.top, 0)
+            }.padding(.top, 20)
             
             Group {
                 Spacer()
                     
                 Color.gray.frame(width: 1, height: 80)
-                    .padding(.top, -20)
+                    .padding(.top, 0)
                 
                 Spacer()
             }
@@ -86,10 +91,10 @@ struct NearbyStationsView: View {
                     .overlay(
                         Circle()
                             .stroke(.blue, lineWidth: 1)
-                            .frame(width: 80, height: 80)
+                            .frame(width: circleDemester, height: circleDemester)
                             
                     )
-                    .frame(width: 50, height: 50)
+                    .frame(width: carDemester, height: carDemester)
                     .foregroundColor(.blue)
                 
                     
@@ -99,7 +104,7 @@ struct NearbyStationsView: View {
                     .frame(maxWidth: 120, maxHeight: 50)
                     .foregroundColor(.blue)
                     
-            }
+            }.padding(.top, icon_top)
             
             Spacer()
                 
