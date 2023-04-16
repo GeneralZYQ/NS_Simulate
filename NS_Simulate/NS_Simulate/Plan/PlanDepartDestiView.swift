@@ -32,8 +32,9 @@ struct departureAndDestinationIcon: View {
 
 struct departureAndDestinationButtons : View {
     
-    @State var departure: String
-    @State var destination: String
+    @Binding var departure: City
+    @Binding var destination: City
+//    @State var selectDepar : Bool
     
     @State private var showingDepartureList = false
     @State private var showingDestinationList = false
@@ -45,7 +46,7 @@ struct departureAndDestinationButtons : View {
                 Button {
                     showingDepartureList = true
                 } label: {
-                    Text(self.departure)
+                    Text(self.departure.name)
                         .font(.subheadline)
                         .bold()
                         .frame(height: proxy.size.height / 2.0)
@@ -56,7 +57,8 @@ struct departureAndDestinationButtons : View {
                 .frame(width: proxy.size.width)
                 .background(Color.white)
                 .sheet(isPresented: $showingDepartureList) {
-                    Text("departure")
+                    
+                    LocationSelectView(departureCity: $departure, destinationCity: $destination, selectDepar: true)
                 }
                 
                 
@@ -66,7 +68,7 @@ struct departureAndDestinationButtons : View {
                 Button {
                     showingDestinationList = true
                 } label: {
-                    Text(self.destination)
+                    Text(self.destination.name)
                         .font(.subheadline)
                         .bold()
                         .frame(height: proxy.size.height / 2.0)
@@ -75,7 +77,7 @@ struct departureAndDestinationButtons : View {
                 .frame(width: proxy.size.width)
                 .background(Color.white)
                 .sheet(isPresented: $showingDestinationList) {
-                    Text("destination")
+                    LocationSelectView(departureCity: $departure, destinationCity: $destination, selectDepar: false)
                 }
 
             }
@@ -84,6 +86,10 @@ struct departureAndDestinationButtons : View {
 }
 
 struct switchButtonView : View {
+    
+    @Binding var departure: City
+    @Binding var destination: City
+    
     var body: some View {
         GeometryReader { proxy in
             VStack {
@@ -91,7 +97,7 @@ struct switchButtonView : View {
                 let radius = min(proxy.size.width, proxy.size.height) / 2.0
                 
                 Button {
-                    
+                    switch_cities()
                 } label: {
                     Spacer()
                     
@@ -117,9 +123,19 @@ struct switchButtonView : View {
             }
         }
     }
+    
+    func switch_cities() {
+        print("abccc")
+        swap(&departure, &destination)
+    }
 }
 
 struct PlanDepartDestiView: View {
+    
+    @State var departure = City(name: "Amsterdam", cityID: "a123")
+    @State var destination = City(name: "Leiden", cityID: "l123")
+    
+    
     var body: some View {
         
         
@@ -133,12 +149,12 @@ struct PlanDepartDestiView: View {
                             .background(Color.white)
                             .padding(.leading, 0)
                         
-                        departureAndDestinationButtons(departure: "Amsterdam", destination: "Rotterdam")
+                        departureAndDestinationButtons(departure: $departure, destination: $destination)
                             .frame(width: proxy.size.width - proxy.size.width / 8.0 - 100.0 , height: proxy.size.height )
                             .background(Color.white)
                         
                         
-                        switchButtonView()
+                        switchButtonView(departure: $departure, destination: $destination)
                             .frame(height: proxy.size.height)
                             
                     }

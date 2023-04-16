@@ -9,9 +9,18 @@ import SwiftUI
 
 struct NearbyStationsView: View {
     
-    private var circleDemester = 60.0
-    private var carDemester = 40.0
-    private var icon_top = 20.0
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var departureCity: City
+    @Binding var destCity: City
+    public var selectdepar: Bool
+    
+    private let circleDemester = 60.0
+    private let carDemester = 40.0
+    private let icon_top = 20.0
+    
+//    var SelectNearbyStation : () -> ()
     
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
@@ -38,6 +47,15 @@ struct NearbyStationsView: View {
                     .foregroundColor(.blue)
                     
             }.padding(.top, icon_top)
+                .onTapGesture {
+                    if selectdepar {
+                        departureCity = City(name: "Haarlem", cityID: "h1234")
+                    } else {
+                        destCity = City(name: "Haarlem", cityID: "h1234")
+                    }
+                    
+                    presentationMode.wrappedValue.dismiss()
+                }
             
             Group {
                 Spacer()
@@ -71,6 +89,15 @@ struct NearbyStationsView: View {
                     .foregroundColor(.blue)
                     
             }.padding(.top, 20)
+                .onTapGesture {
+                    if selectdepar {
+                        departureCity = City(name: "Bloemendaal", cityID: "b123")
+                    } else {
+                        destCity = City(name: "Bloemendaal", cityID: "b123")
+                    }
+                    
+                    presentationMode.wrappedValue.dismiss()
+                }
             
             Group {
                 Spacer()
@@ -105,6 +132,15 @@ struct NearbyStationsView: View {
                     .foregroundColor(.blue)
                     
             }.padding(.top, icon_top)
+                .onTapGesture {
+                    if selectdepar {
+                        departureCity = City(name: "Amsterdam Sloterdijk", cityID: "a1234")
+                    } else {
+                        destCity = City(name: "Amsterdam Sloterdijk", cityID: "a1234")
+                    }
+                    
+                    presentationMode.wrappedValue.dismiss()
+                }
             
             Spacer()
                 
@@ -115,8 +151,8 @@ struct NearbyStationsView: View {
     }
 }
 
-struct NearbyStationsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NearbyStationsView()
-    }
-}
+//struct NearbyStationsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NearbyStationsView()
+//    }
+//}
