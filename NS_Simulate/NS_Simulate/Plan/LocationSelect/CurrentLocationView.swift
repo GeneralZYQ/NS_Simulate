@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct CurrentLocationView: View {
+    
+    @Binding var departureCity: City
+    @Binding var destCity: City
+    public var selectdepar: Bool
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         HStack(spacing: 0) {
             Image(systemName: "arrow.up.forward.circle")
@@ -19,7 +26,7 @@ struct CurrentLocationView: View {
             VStack (alignment: .leading) {
                 Text("Nearby location")
                     
-                Text("Haarlem General Conjel 33")
+                Text("Haarlem")
             }
             
             Spacer()
@@ -30,13 +37,21 @@ struct CurrentLocationView: View {
                 .frame(width: 40)
                 .foregroundColor(.blue)
                 
+        }.onTapGesture {
+            if selectdepar {
+                departureCity = City(name: "Haarlem", cityID: "h1234")
+            } else {
+                destCity = City(name: "Haarlem", cityID: "h1234")
+            }
+            
+            presentationMode.wrappedValue.dismiss()
         }
         
     }
 }
 
-struct CurrentLocationView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrentLocationView()
-    }
-}
+//struct CurrentLocationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CurrentLocationView()
+//    }
+//}
