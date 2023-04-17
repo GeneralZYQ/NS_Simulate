@@ -12,6 +12,7 @@
 		612472E72989718100C93CE2 /* PlanDepartDestiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612472E62989718100C93CE2 /* PlanDepartDestiView.swift */; };
 		612472E92989A78C00C93CE2 /* DepartureOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612472E82989A78C00C93CE2 /* DepartureOptionView.swift */; };
 		612472EB298A6C2600C93CE2 /* DisruptionPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612472EA298A6C2600C93CE2 /* DisruptionPromptView.swift */; };
+		61390A3A29EC090600E634CC /* DepartureTimeSelectionActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61390A3929EC090600E634CC /* DepartureTimeSelectionActionView.swift */; };
 		613A19E629A8E0330089C0B8 /* FavoriteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A19E529A8E0330089C0B8 /* FavoriteWidget.swift */; };
 		613A19E829A916B90089C0B8 /* FavoriteTripsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A19E729A916B90089C0B8 /* FavoriteTripsWidget.swift */; };
 		613A19EA29A936630089C0B8 /* CardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A19E929A936630089C0B8 /* CardWidget.swift */; };
@@ -37,6 +38,7 @@
 		612472E62989718100C93CE2 /* PlanDepartDestiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDepartDestiView.swift; sourceTree = "<group>"; };
 		612472E82989A78C00C93CE2 /* DepartureOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureOptionView.swift; sourceTree = "<group>"; };
 		612472EA298A6C2600C93CE2 /* DisruptionPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisruptionPromptView.swift; sourceTree = "<group>"; };
+		61390A3929EC090600E634CC /* DepartureTimeSelectionActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureTimeSelectionActionView.swift; sourceTree = "<group>"; };
 		613A19E529A8E0330089C0B8 /* FavoriteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWidget.swift; sourceTree = "<group>"; };
 		613A19E729A916B90089C0B8 /* FavoriteTripsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTripsWidget.swift; sourceTree = "<group>"; };
 		613A19E929A936630089C0B8 /* CardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWidget.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
+		61390A3629EC081D00E634CC /* DepartureOption */ = {
+			isa = PBXGroup;
+			children = (
+				61390A3929EC090600E634CC /* DepartureTimeSelectionActionView.swift */,
+			);
+			path = DepartureOption;
+			sourceTree = "<group>";
+		};
 		613A19EB29B1198C0089C0B8 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +157,7 @@
 		61CE7AE82986B61600C8ECF5 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
+				61390A3629EC081D00E634CC /* DepartureOption */,
 				61D5B2F529B128BC009AB529 /* LocationSelect */,
 				61370FAA29A8E00200E45907 /* Widgets */,
 				61CE7AE62986B60C00C8ECF5 /* PlanView.swift */,
@@ -286,6 +297,7 @@
 				61CE7AF12986B6C400C8ECF5 /* MyTripsView.swift in Sources */,
 				61D5B2FD29B7A01D009AB529 /* test.swift in Sources */,
 				612472EB298A6C2600C93CE2 /* DisruptionPromptView.swift in Sources */,
+				61390A3A29EC090600E634CC /* DepartureTimeSelectionActionView.swift in Sources */,
 				612472E92989A78C00C93CE2 /* DepartureOptionView.swift in Sources */,
 				61CE7AEE2986B6A400C8ECF5 /* NearByView.swift in Sources */,
 				61D5B2FB29B131F7009AB529 /* NearbyStationsView.swift in Sources */,

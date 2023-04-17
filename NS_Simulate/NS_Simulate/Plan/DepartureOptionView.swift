@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct DepartureTimeView: View {
+struct DepartureTimeActionView: View {
+    
+    @State private var showingTimeView = false
+    
     var body: some View {
         
         GeometryReader { proxy in
             
             Button {
+                
+                showingTimeView = true
                 
             } label: {
                 HStack(spacing: 2) {
@@ -31,9 +36,30 @@ struct DepartureTimeView: View {
                 .background(Color.white)
                 .cornerRadius(5)
             }.buttonStyle(PlainButtonStyle())
+            .fullScreenCover(isPresented: $showingTimeView) {
+                    ZStack {
+                        
+                        Color.black.opacity(0.2).edgesIgnoringSafeArea(.all)
+                        DepartureTimeSelectionActionView()
+                    }.background(BackgroundBlurView())
+                }
         }
 
     }
+}
+
+struct BackgroundBlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIVisualEffectView(effect: UIVibrancyEffect())
+        DispatchQueue.main.async {
+            
+            view.superview?.superview?.backgroundColor = .clear
+            
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
 
 struct OptionButton: View {
@@ -78,7 +104,7 @@ struct DepartureOptionView: View {
             GeometryReader { proxy in
                 
                 HStack(spacing: 0) {
-                    DepartureTimeView()
+                    DepartureTimeActionView()
                         .frame(width: (proxy.size.width - 30) * 2.0 / 3.0, height: proxy.size.height)
                     
                     Color.yellow.frame(width: 10)
