@@ -91,7 +91,7 @@ struct OptionButton: View {
     var body: some View {
         GeometryReader { proxy in
             Button {
-                
+                showingOptions = true
             } label: {
                 
                 ZStack {
@@ -115,6 +115,9 @@ struct OptionButton: View {
                 
             }.buttonStyle(PlainButtonStyle())
             .cornerRadius(5)
+            .sheet(isPresented: $showingOptions) {
+                OptionsSelectionView()
+            }
 //                .background(Color.red)
 
         }

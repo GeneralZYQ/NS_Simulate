@@ -36,4 +36,15 @@ class Options: ObservableObject {
     @Published var viaStation = "Heisen"
     @Published var preferences = ["sprinterOnly": false, "hideTrain": false, "showAccesible": false]
     @Published var additionalTime = 0
+    
+    static func convert_trans_type(type: TransportType)->String {
+        switch(type) {
+        case TransportType.Walk:
+            return "Train"
+            break
+        default:
+            return ""
+            break
+        }
+    }
 }
