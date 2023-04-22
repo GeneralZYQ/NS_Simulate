@@ -86,6 +86,8 @@ struct BackgroundBlurView: UIViewRepresentable {
 
 struct OptionButton: View {
     
+    @EnvironmentObject var options : Options
+    
     @State private var showingOptions = false
     
     var body: some View {
@@ -116,7 +118,7 @@ struct OptionButton: View {
             }.buttonStyle(PlainButtonStyle())
             .cornerRadius(5)
             .sheet(isPresented: $showingOptions) {
-                OptionsSelectionView()
+                OptionsSelectionView(ini_public_types: options.publics)
             }
 //                .background(Color.red)
 

@@ -38,7 +38,7 @@ struct TransTypeButton : View {
             }
 
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 55)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight:55, maxHeight: 75)
         .background(.gray)
             
     }
@@ -61,15 +61,91 @@ struct TransTypesView: View {
     }
 }
 
+struct PublicTypeChooseView: View {
+    
+    
+    var set_type : PublicTransportType
+    @Binding var chosen_types : [PublicTransportType]
+    
+    
+    var body: some View {
+        
+        VStack(alignment: .center) {
+            
+            Image(systemName: imagify_type(type: set_type))
+            Text(stringify_type(type:set_type))
+                .font(.caption)
+        }.frame(width: 200, height: 100)
+        .border(.blue, width: 3)
+        .cornerRadius(5)
+        .onTapGesture {
+            print("\(chosen_types.count)")
+        }
+    }
+    
+    func stringify_type(type: PublicTransportType)->String {
+        
+        switch type {
+        case PublicTransportType.Train:
+            return "Train"
+            
+        case PublicTransportType.Bus:
+            return "Bus"
+            
+        case PublicTransportType.Subway:
+            return "Subway"
+            
+        case PublicTransportType.Tram:
+            return "Tram"
+            
+        case PublicTransportType.Ferry:
+            return "Ferry"
+        }
+    }
+    
+    func imagify_type(type: PublicTransportType)->String {
+        
+        switch type {
+            case PublicTransportType.Train:
+                return "train.side.middle.car"
+            case .Bus:
+                return "bus"
+            case .Subway:
+                return "m.square"
+            case .Tram:
+                return "tram"
+            case .Ferry:
+                return "ferry"
+        }
+    }
+}
+
 
 struct OptionsSelectionView: View {
     
     @EnvironmentObject var options : Options
     
+    let public_trans_type = [PublicTransportType.Train, PublicTransportType.Bus, PublicTransportType.Subway, PublicTransportType.Tram, PublicTransportType.Ferry]
+
+    @State var ini_public_types : [PublicTransportType]
+    
+//    init(ini_public_types: Array<PublicTransportType> = []) {
+//
+//        self.ini_public_types = options.publics
+//    }
+    
+//    init() {
+//
+//        _ini_public_types = State(initialValue: options.publics)
+//    }
+    
+    
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack {
                 Color.yellow
+                
                 HStack(alignment: .center) {
                     Button {
                         
@@ -97,26 +173,54 @@ struct OptionsSelectionView: View {
 
                 }
             }.frame(height: 55)
-            TransTypesView()
-            Divider().padding(.top, 10)
-            Group {
-                Text("Public transport")
-                    .font(.body)
-                    .bold(true)
-                    .foregroundColor(.blue)
-                    .padding(.leading, 5)
-                    .padding(.top, 20)
+            
+            ScrollView {
+                
+                VStack(alignment: .leading) {
+                    TransTypesView()
+                    
+                    Divider().padding(.top, 10)
+                    Group {
+                        Text("Public transport")
+                            .font(.body)
+                            .bold(true)
+                            .foregroundColor(.blue)
+                            .padding(.leading, 5)
+                            .padding(.top, 10)
+                        
+                        PublicTypeChooseView(set_type: .Train, chosen_types: $ini_public_types)
+                            
+                            
+//                        ForEach(fetch_current_type(), id:\.self) { item in
+//                            Text("abc")
+//                        }
+                    }
+                    
+                    
+                    
+                    
+                    Spacer()
+                }
+                
             }
             
             
-            Spacer()
+           
         }
         
     }
+    
+//    func fetch_current_type()->Array<PublicTransportType> {
+//
+//        return options.publics
+//    }
 }
 
 struct OptionsSelectionView_Previews: PreviewProvider {
+    
+    static let options = Options()
+    
     static var previews: some View {
-        OptionsSelectionView()
+        OptionsSelectionView(ini_public_types: options.publics).environmentObject(options)
     }
 }
