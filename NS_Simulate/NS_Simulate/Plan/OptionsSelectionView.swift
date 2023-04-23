@@ -150,6 +150,57 @@ struct viaStationTextfield : View {
     }
 }
 
+struct AdditionalTransferView : View {
+    
+    @Binding var additionalMins: Int
+    
+    var body: some View {
+        
+        HStack(alignment: .center) {
+            
+            VStack(alignment: .leading) {
+                Text("Additional transfer time")
+                    .font(.body)
+                    .bold(true)
+                    .foregroundColor(.blue)
+                    .padding(.bottom, 1)
+                
+                Text("In minutes")
+                    .foregroundColor(.gray)
+            }
+            
+            Spacer()
+            
+            Button {
+                additionalMins = additionalMins - 1
+            } label: {
+                Image(systemName: "minus")
+                    .frame(width: 40, height: 40)
+            }.frame(maxWidth:40, maxHeight: 40)
+                .background(additionalMins == 0 ? .gray.opacity(0.5): .gray)
+                .foregroundColor(additionalMins == 0 ? .gray : .blue)
+                .cornerRadius(5)
+            .disabled(additionalMins == 0)
+            
+            Text("\(additionalMins)")
+                .bold()
+                .foregroundColor(.blue)
+                .font(.title2)
+            
+            Button {
+                additionalMins = additionalMins + 1
+            } label: {
+                Image(systemName: "plus")
+                    .frame(width: 40, height: 40)
+            }.frame(maxWidth:40, maxHeight: 40)
+                .background(.gray)
+                .foregroundColor(.blue)
+                .cornerRadius(5)
+            
+        }
+    }
+}
+
 
 struct OptionsSelectionView: View {
     
@@ -170,7 +221,7 @@ struct OptionsSelectionView: View {
     @State private var onlySprinters = false
     @State private var hidetrains = false
     @State private var onlyAccesibleJournies = false
-    
+    @State private var additionalMinuts : Int = 0
     
     
     
@@ -305,6 +356,15 @@ struct OptionsSelectionView: View {
                         .padding(.trailing, 5)
                     
                     
+                    Group {
+                        
+                        
+                        
+                        
+                        AdditionalTransferView(additionalMins: $additionalMinuts)
+                    }.padding(.leading, 5)
+                    .padding(.trailing, 5)
+                    .padding(.top, 10)
                     
                     
                     
