@@ -144,6 +144,9 @@ struct viaStationTextfield : View {
         .cornerRadius(5)
         .padding(.leading, 5)
         .padding(.trailing, 5)
+        .onTapGesture {
+            print("text")
+        }
     }
 }
 
@@ -163,6 +166,10 @@ struct OptionsSelectionView: View {
     @State private var ini_public_types : [PublicTransportType] = [PublicTransportType.Train]
     
     @State private var stationName = ""
+    
+    @State private var onlySprinters = false
+    @State private var hidetrains = false
+    @State private var onlyAccesibleJournies = false
     
     
     
@@ -185,6 +192,7 @@ struct OptionsSelectionView: View {
                     
                     Text("Travel options")
                         .font(.title3)
+                        .foregroundColor(.blue)
                     
                     Spacer()
                     
@@ -255,6 +263,47 @@ struct OptionsSelectionView: View {
                             
                         
                     }
+                    
+                    Divider().padding(.top, 10)
+                    
+                    Group {
+                        
+                        Text("Preferences")
+                            .font(.body)
+                            .bold(true)
+                            .foregroundColor(.blue)
+                            .padding(.top, 10)
+                        
+                        Toggle("Show sprinters only", isOn: $onlySprinters)
+                            .foregroundColor(.blue).font(.subheadline)
+                        
+                        Toggle("Hide Trains with required reservation", isOn: $hidetrains)
+                            .foregroundColor(.blue)
+                            .font(.subheadline)
+                        
+                        Toggle("Show only accesible journeys", isOn: $onlyAccesibleJournies)
+                            .foregroundColor(.blue)
+                            .font(.subheadline)
+                        
+                        Text("""
+· You are travelling with an aid, like wheelchair
+· You want to know where you can independently embark and disembark the train or request to get NS Travel-assistance
+· You will only get information about accessible journeys with NS trains
+""").foregroundColor(.gray)
+                            .font(.caption2)
+                        
+//                        HStack {
+//
+//                            Text("Show sprinters only")
+//                                .font(.caption2)
+//                                .padding(.top, 2)
+//                                .foregroundColor(.gray)
+//
+//
+//                        }
+                    }.padding(.leading, 5)
+                        .padding(.trailing, 5)
+                    
                     
                     
                     
