@@ -11,8 +11,12 @@ struct departureOptionTopBar : View {
     
     @State private var buttonColor = Color.white
     @Binding var arrived : Bool
-    
     @Binding var currentDate: Date
+    
+    @Binding var real_arrived: Bool
+    @Binding var real_date : Date
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
     
@@ -75,7 +79,9 @@ struct departureOptionTopBar : View {
             Spacer()
             
             Button {
-                currentDate = Date()
+                real_date = Date()
+                real_arrived = arrived
+                dismiss()
             } label: {
                 Text("Now")
                     .frame(width: 70, height: 35)
@@ -97,8 +103,12 @@ struct departureOptionTopBar : View {
 
 struct DepartureTimeSelectionActionView: View {
     
-    @State private var currentDate = Date()
+    @State private var temp_date = Date()
     @State private var arrived = false
+    
+    @Binding var currentDate : Date
+    @Binding var arriving : Bool
+    
     
     @Environment(\.dismiss) var dismiss
     
@@ -111,12 +121,14 @@ struct DepartureTimeSelectionActionView: View {
             
                 VStack {
                     
-                    departureOptionTopBar(arrived: $arrived, currentDate: $currentDate)
-                    DatePicker("", selection: $currentDate, displayedComponents: [.date, .hourAndMinute])
+                    departureOptionTopBar(arrived: $arrived, currentDate: $temp_date, real_arrived: $arriving, real_date: $currentDate)
+                    DatePicker("", selection: $temp_date, displayedComponents: [.date, .hourAndMinute])
                         .datePickerStyle(WheelDatePickerStyle())
                         .labelsHidden()
                     
                     Button {
+                        currentDate = temp_date
+                        arriving = arrived
                         dismiss()
                     } label: {
                         Text("Apply")
@@ -140,8 +152,14 @@ struct DepartureTimeSelectionActionView: View {
     }
 }
 
-struct DepartureTimeSelectionActionView_Previews: PreviewProvider {
-    static var previews: some View {
-        DepartureTimeSelectionActionView()
-    }
-}
+
+//struct DepartureTimeSelectionActionView_Previews: PreviewProvider {
+//
+//
+//
+//    @State var selected_date :Date
+//    static var previews: some View {
+//
+//        DepartureTimeSelectionActionView(currentDate: $selected_date)
+//    }
+//}

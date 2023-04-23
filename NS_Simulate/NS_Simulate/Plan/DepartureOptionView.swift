@@ -10,7 +10,11 @@ import SwiftUI
 struct DepartureTimeActionView: View {
     
     @State private var showingTimeView = false
+    @State var selected_Date = Date()
+    @State var arriving = false
     
+    
+
     var body: some View {
         
         GeometryReader { proxy in
@@ -21,13 +25,17 @@ struct DepartureTimeActionView: View {
                 
             } label: {
                 HStack(spacing: 2) {
-                    Text("Departure: ")
+                    
+                    
+                    
+                    Text(stringify_direction(dire: arriving))
                         .font(.title3)
                         .bold()
                         .padding(.leading, 10)
                         .foregroundColor(Color.blue)
-                    Text("now")
-                        .font(.body)
+                   
+                    Text(convert_date(sele_date:selected_Date))
+                        .font(.subheadline)
                         .foregroundColor(Color.blue)
                     Spacer()
                 }
@@ -40,11 +48,25 @@ struct DepartureTimeActionView: View {
                     ZStack {
                         
                         Color.black.opacity(0.2).edgesIgnoringSafeArea(.all)
-                        DepartureTimeSelectionActionView()
+                        DepartureTimeSelectionActionView(currentDate: $selected_Date, arriving: $arriving)
                     }.background(BackgroundBlurView())
                 }
         }
 
+    }
+    
+    func convert_date(sele_date : Date)->String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm E. d-MM"
+        return formatter.string(from: sele_date)
+    }
+    
+    func stringify_direction(dire: Bool)->String {
+        if dire {
+            return "Arrival: "
+        } else {
+            return "Departure: "
+        }
     }
 }
 
@@ -63,10 +85,15 @@ struct BackgroundBlurView: UIViewRepresentable {
 }
 
 struct OptionButton: View {
+    
+    @EnvironmentObject var options : Options
+    
+    @State private var showingOptions = false
+    
     var body: some View {
         GeometryReader { proxy in
             Button {
-                
+                showingOptions = true
             } label: {
                 
                 ZStack {
@@ -90,6 +117,9 @@ struct OptionButton: View {
                 
             }.buttonStyle(PlainButtonStyle())
             .cornerRadius(5)
+            .sheet(isPresented: $showingOptions) {
+                OptionsSelectionView()
+            }
 //                .background(Color.red)
 
         }
@@ -97,6 +127,9 @@ struct OptionButton: View {
 }
 
 struct DepartureOptionView: View {
+    
+    @EnvironmentObject var options: Options
+    
     var body: some View {
         ZStack {
             Color.clear

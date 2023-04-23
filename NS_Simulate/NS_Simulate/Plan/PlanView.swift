@@ -38,6 +38,8 @@ struct PlanView: View {
 //        return 0.3;
     }
     
+    @StateObject var options = Options()
+    
     
     
     var body: some View {
@@ -126,6 +128,7 @@ struct PlanView: View {
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 
                 }.ignoresSafeArea(edges: .top)
+                .environmentObject(options)
                 
                 VStack {
 
