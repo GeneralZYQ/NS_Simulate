@@ -118,7 +118,7 @@ struct OptionButton: View {
             }.buttonStyle(PlainButtonStyle())
             .cornerRadius(5)
             .sheet(isPresented: $showingOptions) {
-                OptionsSelectionView(ini_public_types: options.publics)
+                OptionsSelectionView()
             }
 //                .background(Color.red)
 

@@ -75,7 +75,7 @@ struct PublicTypeChooseView: View {
             Image(systemName: imagify_type(type: set_type))
             Text(stringify_type(type:set_type))
                 .font(.caption)
-        }.frame(width: 200, height: 100)
+        }.frame(minWidth: 100, maxWidth: 200, minHeight: 100, maxHeight: 150)
         .border(.blue, width: 3)
         .cornerRadius(5)
         .onTapGesture {
@@ -120,24 +120,50 @@ struct PublicTypeChooseView: View {
     }
 }
 
+struct viaStationTextfield : View {
+    
+    @Binding var viaCity: String
+    
+    var body: some View {
+        HStack {
+            
+            Text(viaCity)
+                .padding()
+            
+            Spacer()
+            
+            if ((viaCity.count) != 0) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "xmark")
+                }.padding()
+            }
+        }
+        .border(.gray, width: 2)
+        .cornerRadius(5)
+        .padding(.leading, 5)
+        .padding(.trailing, 5)
+    }
+}
+
 
 struct OptionsSelectionView: View {
     
     @EnvironmentObject var options : Options
     
     let public_trans_type = [PublicTransportType.Train, PublicTransportType.Bus, PublicTransportType.Subway, PublicTransportType.Tram, PublicTransportType.Ferry]
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
 
-    @State var ini_public_types : [PublicTransportType]
+    @State private var ini_public_types : [PublicTransportType] = [PublicTransportType.Train]
     
-//    init(ini_public_types: Array<PublicTransportType> = []) {
-//
-//        self.ini_public_types = options.publics
-//    }
+    @State private var stationName = ""
     
-//    init() {
-//
-//        _ini_public_types = State(initialValue: options.publics)
-//    }
     
     
     
@@ -188,12 +214,46 @@ struct OptionsSelectionView: View {
                             .padding(.leading, 5)
                             .padding(.top, 10)
                         
-                        PublicTypeChooseView(set_type: .Train, chosen_types: $ini_public_types)
+                        Text("Choose at least one type of public transport")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(.leading, 5)
+                            .padding(.top, 1)
+                        
+//                        PublicTypeChooseView(set_type: .Train, chosen_types: $ini_public_types)
                             
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(public_trans_type, id: \.self) { item in
+                                PublicTypeChooseView(set_type: item, chosen_types: $ini_public_types)
+                                
+                            }
+                        }.padding(.leading, 5)
+                        .padding(.trailing, 5)
+
+                    }
+                    
+                    Group {
+                        Text("Via Station")
+                            .font(.body)
+                            .bold(true)
+                            .foregroundColor(.blue)
+                            .padding(.leading, 5)
+                            .padding(.top, 10)
+                        
+                        viaStationTextfield(viaCity: $stationName)
+                        
+                        
+//                        TextField("Station", text: $stationName) { editing in
+//                            if editing {
+//                                print("ediitng")
+//                            } else {
+//                                print("not editing")
+//                            }
+//                        }.textFieldStyle(.roundedBorder)
+//                            .padding(.leading, 5)
+//                            .padding(.trailing, 5)
                             
-//                        ForEach(fetch_current_type(), id:\.self) { item in
-//                            Text("abc")
-//                        }
+                        
                     }
                     
                     
@@ -221,6 +281,6 @@ struct OptionsSelectionView_Previews: PreviewProvider {
     static let options = Options()
     
     static var previews: some View {
-        OptionsSelectionView(ini_public_types: options.publics).environmentObject(options)
+        OptionsSelectionView().environmentObject(options)
     }
 }
